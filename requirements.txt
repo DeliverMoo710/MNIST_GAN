@@ -1,0 +1,18 @@
+# requirements.txt (flexible with minimum versions)
+# Core Data & ML Libraries
+numpy>=1.26.0
+pandas>=2.1.0
+scikit-learn>=1.3.0
+tqdm>=4.65.0
+
+# PyTorch with CUDA 11.8 (minimum versions, allows updates)
+--extra-index-url https://download.pytorch.org/whl/cu118
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# Hugging Face Transformers
+transformers>=4.30.0
+
+# Jupyter support
+ipykernel>=6.25.0
