@@ -1,5 +1,14 @@
+# get configuration settings for the model training
 def get_config():
     return {
-        "lr" : 0.0002,
-        "latent_dim" : 
+        "lr" : 3e-4,
+        "latent_dim" : 3072,
+        "image_dim" : 32 * 32 * 3, # 3072
+        "batch_size" : 32,
+        "num_epochs" : 50,
+        "weight_path" : "",
     }
+
+# Get file path for model weights
+def get_weights_file_path(config, suffix):
+

@@ -210,3 +210,5 @@ __marimo__/
 # Repo Specific ignore files
 logs/*
 data/*
+cifar_logs/*
+.vscode/
