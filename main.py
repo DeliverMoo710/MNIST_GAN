@@ -31,6 +31,11 @@ z_dim = config["latent_dim"]
 batch_size = config["batch_size"]
 num_epochs = config["num_epochs"]
 
+# Create directories for weights of both the discriminator and generator
+os.makedirs(config["weight_path"], exist_ok=True)
+os.makedirs(os.path.join(config["weight_path"], "discriminator"), exist_ok=True)
+os.makedirs(os.path.join(config["weight_path"], "generator"), exist_ok=True)
+
 disc = Discriminator().to(device)
 gen = Generator(z_dim).to(device)
 
@@ -76,6 +81,7 @@ for epoch in range(num_epochs):
         opt_gen.step() # updates weights based on gradients
 
         if batch_idx == 0:
+            
             print(
                 f"Epoch [{epoch}/{num_epochs}] Batch {batch_idx}/{len(train_dataloader)} \
                       Loss D: {lossD:.4f}, loss G: {lossG:.4f}"
@@ -94,3 +100,7 @@ for epoch in range(num_epochs):
                     "CIFAR Real Images", img_grid_real, global_step=step
                 )
                 step += 1
+
+    # save model weights with epoch as suffix 
+    torch.save(disc.state_dict(), get_weights_file_path(config, "discriminator", f"{epoch}"))
+    torch.save(gen.state_dict(), get_weights_file_path(config, "generator", f"{epoch}"))
