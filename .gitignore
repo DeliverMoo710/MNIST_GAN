@@ -209,6 +209,8 @@ __marimo__/
 
 # Repo Specific ignore files
 logs/*
+lsun_logs/*
 data/*
 cifar_logs/*
 .vscode/
+weights/*

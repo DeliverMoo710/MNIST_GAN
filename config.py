@@ -12,8 +12,8 @@ def get_config():
     }
 
 # Get file path for model weights
-def get_weights_file_path(config, type, suffix):
+def get_weights_file_path(config, suffix):
 # config: dict
 # type: str, "encoder" or "decoder"
 # suffix: str, e.g. "best", "last"
-    return os.path.join(config["weight_path"], type, f"{suffix}.pth")
+    return os.path.join(config["weight_path"], f"{suffix}.pth")
